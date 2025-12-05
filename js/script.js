@@ -1,5 +1,6 @@
 "use strict";
 
+<<<<<<< HEAD
 let numberOfFilms;
 
 function start() {
@@ -11,6 +12,9 @@ function start() {
 }
 
 start();
+=======
+const numberOfFilms = +prompt("How many films have you watched?", "");
+>>>>>>> d482ed8ce99bb157e977aa1841eceee7941e0c2d
 
 const personalMovieDB = {
   count: numberOfFilms,
