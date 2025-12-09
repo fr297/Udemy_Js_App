@@ -346,3 +346,291 @@
 
 // const num = 12.2;
 // console.log(Math.round(num));
+
+// function findMaxNumber(a, b, c, d) {
+//   if (
+//     typeof a !== "number" ||
+//     typeof b !== "number" ||
+//     typeof c !== "number" ||
+//     typeof d !== "number"
+//   ) {
+//     return 0;
+//   } else {
+// //     console.log(Math.max(a, b, c, d));
+// //   }
+// // }
+
+// // findMaxNumber(2, 1, 33, 4);
+
+// function first() {
+//   setTimeout(function () {
+//     console.log(1);
+//   }, 500);
+// }
+
+// function second() {
+//   console.log(2);
+// }
+
+// first();
+// second();
+
+// function learnJs(lang, callback) {
+//   console.log(`I learn ${lang}`);
+//   callback();
+// }
+
+// function done() {
+//   console.log("I finished this lesson");
+// }
+
+// learnJs("JavaScript", done);
+
+// const options = {
+//   name: "test",
+//   width: 1024,
+//   height: 1024,
+//   colors: {
+//     border: "black",
+//     bg: "red",
+//   },
+//   makeTest: function () {
+//     console.log("Test");
+//   },
+// };
+
+// options.makeTest();
+
+// const { border, bg } = options.colors;
+// console.log(border);
+
+// console.log(Object.keys(options).length);
+
+// delete options.name;
+
+// console.log(options);
+
+// let counter = 0;
+
+// for (let key in options) {
+//   if (typeof (options[key] === "object")) {
+//     for (let i in options[key]) {
+//       console.log(`Property ${i} has value ${options[key][i]}`);
+//       counter++;
+//     }
+//   } else {
+//     console.log(`Property ${key} has value ${options[key]}`);
+//     counter++;
+//   }
+// }
+
+// function showExperience(object) {
+//   const { exp } = object.skills;
+//   console.log(exp);
+// }
+
+// showExperience(personalPlanPeter);
+
+// function showProgrammingsLangs(plan) {
+//   let str = "";
+//   const { programmingLangs } = plan.skills;
+
+//   for (let key in programmingLangs) {
+//     str += `Language ${key} learned at ${programmingLangs[key]}\n`;
+//   }
+
+//   console.log(str);
+// }
+
+// showProgrammingsLangs(personalPlanPeter);
+
+// const arr = [1, 20, 13, 42, 15];
+// arr.sort(compareNum);
+// console.log(arr);
+
+// function compareNum(a, b) {
+//   return a - b;
+// }
+
+//  arr.pop();
+// arr.push(6);
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+
+// for (let value of arr) {
+//   console.log(value);
+// }
+
+// arr.forEach(function (item, i, arr) {
+//   console.log(`${i}: ${item} inside array ${arr}`);
+// });
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// console.log(products.join("; "));
+
+// function copyObj(mainObj) {
+//   let objCopy = {};
+//   for (let key in mainObj) {
+//     objCopy[key] = mainObj[key];
+//   }
+//   return objCopy;
+// }
+
+// const numbers = {
+//   a: 2,
+//   b: 5,
+//   c: {
+//     x: 7,
+//     y: 4,
+//   },
+// };
+
+// const newNumbers = copyObj(numbers);
+
+// newNumbers.a = 10;
+// newNumbers.c.x = 10;
+
+// console.log(newNumbers);
+// console.log(numbers);
+
+// const add = {
+//   d: 17,
+//   e: 20,
+// };
+// console.log(Object.assign(numbers, add));
+
+// const clone = Object.assign({}, add);
+
+// clone.d = 20;
+// console.log(add);
+// console.log(clone);
+
+// const oldArray = ["a", "b", "c"];
+// const newArray = oldArray.slice();
+
+// newArray[1] = "changed";
+
+// console.log(newArray);
+// console.log(oldArray);
+
+// const video = ["youtube", "vimeo", "rutube"],
+//   blogs = ["wordpress", "livejournal", "blogger"],
+//   internet = [...video, ...blogs, "vk", "facebook"];
+
+// console.log(internet);
+
+// function log(a, b, c) {
+//   console.log(a);
+//   console.log(b);
+//   console.log(c);
+// }
+
+// const num = [2, 5, 7];
+
+// log(...num);
+
+// const personalPlanPeter = {
+//   name: "Peter",
+//   age: "29",
+//   skills: {
+//     languages: ["ru", "eng"],
+//     programmingLangs: {
+//       js: "20%",
+//       php: "10%",
+//     },
+//     exp: "1 month",
+//   },
+// };
+
+// function showExperience(plan) {
+//   const { exp } = plan.skills;
+//   console.log(exp);
+// }
+
+// showExperience(personalPlanPeter);
+
+// function showProgrammingsLangs(plan) {
+//   let str = "";
+//   const programmingLangs = plan.skills.programmingLangs;
+
+//   for (let key in programmingLangs) {
+//     str += `Language ${key} learned at ${programmingLangs[key]}`;
+//     console.log(str);
+//   }
+// }
+
+// showProgrammingsLangs(personalPlanPeter);
+
+// const someString = "This is some strange string";
+
+// function reverse(str) {
+//   return str.split("").reverse();
+//   console.log(someString);
+// }
+
+// reverse(someString);
+
+// const soldier = {
+//   helath: 400,
+//   armor: 100,
+//   sayHello: function () {
+//     console.log("Hello");
+//   },
+// };
+
+// const John = {
+//   health: 100,
+// };
+
+// John.__proto__ = soldier;
+
+// // console.log(John.armor);
+// John.sayHello();
+
+const shoppingMallData = {
+  shops: [
+    {
+      width: 10,
+      length: 5,
+    },
+    {
+      width: 15,
+      length: 7,
+    },
+    {
+      width: 20,
+      length: 5,
+    },
+    {
+      width: 8,
+      length: 10,
+    },
+  ],
+  height: 5,
+  moneyPer1m3: 30,
+  budget: 50000,
+};
+
+function isBudgetEnough(data) {
+  let square = 0;
+  let volume = 0;
+
+  data.shops.forEach((shop) => {
+    square += shop.width * shop.length;
+  });
+
+  volume = data.height * square;
+
+  if (data.budget - volume * data.moneyPer1m3 >= 0) {
+    return "Ok";
+  } else {
+    return "No";
+  }
+}
+
+isBudgetEnough(shoppingMallData);
