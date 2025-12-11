@@ -592,45 +592,148 @@
 // // console.log(John.armor);
 // John.sayHello();
 
-const shoppingMallData = {
-  shops: [
-    {
-      width: 10,
-      length: 5,
-    },
-    {
-      width: 15,
-      length: 7,
-    },
-    {
-      width: 20,
-      length: 5,
-    },
-    {
-      width: 8,
-      length: 10,
-    },
-  ],
-  height: 5,
-  moneyPer1m3: 30,
-  budget: 50000,
-};
+// const shoppingMallData = {
+//   shops: [
+//     {
+//       width: 10,
+//       length: 5,
+//     },
+//     {
+//       width: 15,
+//       length: 7,
+//     },
+//     {
+//       width: 20,
+//       length: 5,
+//     },
+//     {
+//       width: 8,
+//       length: 10,
+//     },
+//   ],
+//   height: 5,
+//   moneyPer1m3: 30,
+//   budget: 50000,
+// };
 
-function isBudgetEnough(data) {
-  let square = 0;
-  let volume = 0;
+// function isBudgetEnough(data) {
+//   let square = 0;
+//   let volume = 0;
 
-  data.shops.forEach((shop) => {
-    square += shop.width * shop.length;
-  });
+//   data.shops.forEach((shop) => {
+//     square += shop.width * shop.length;
+//   });
 
-  volume = data.height * square;
+//   volume = data.height * square;
 
-  if (data.budget - volume * data.moneyPer1m3 >= 0) {
-    return "Ok";
-  } else {
-    return "No";
-  }
-}
+//   if (data.budget - volume * data.moneyPer1m3 >= 0) {
+//     return "Ok";
+//   } else {
+//     return "No";
+//   }
+// }
 
-isBudgetEnough(shoppingMallData);
+// isBudgetEnough(shoppingMallData);
+
+// console.log(typeof String(null));
+// console.log(typeof String(4));
+
+// const num = 5;
+
+// const fontSize = 26 + "px";
+// console.log(fontSize);
+
+// console.log(typeof +"5");
+
+// let answ = +prompt("Hello", "");
+
+// let switcher = null;
+
+// if (switcher) {
+//   console.log("Working");
+// }
+
+// switcher = 1;
+
+// if (switcher) {
+//   console.log("Working");
+// }
+
+// function createCounter() {
+//   let counter = 0;
+
+//   const myFunction = function () {
+//     counter = counter + 1;
+//     return counter;
+//   };
+//   return myFunction;
+// }
+
+// const increment = createCounter();
+// const c1 = increment();
+// const c2 = increment();
+// const c3 = increment();
+
+// console.log(c1, c2, c3);
+
+// const restorantData = {
+//   menu: [
+//     {
+//       name: "Salad Caesar",
+//       price: "14$",
+//     },
+//     {
+//       name: "Pizza Diavola",
+//       price: "9$",
+//     },
+//     {
+//       name: "Beefsteak",
+//       price: "17$",
+//     },
+//     {
+//       name: "Napoleon",
+//       price: "7$",
+//     },
+//   ],
+//   waitors: [
+//     { name: "Alice", age: 22 },
+//     { name: "John", age: 24 },
+//   ],
+//   averageLunchPrice: "20$",
+//   openNow: true,
+// };
+
+// function isOpen(prop) {
+//   let answer = "";
+//   prop == false ? (answer = "Закрыто") : (answer = "Открыто");
+
+//   console.log(answer);
+// }
+// isOpen(restorantData.openNow);
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//   if (
+//     +fDish.price.slice(0, -1) + +sDish.price.slice(0, -1) <
+//     +average.slice(0, -1)
+//   ) {
+//     return "Цена ниже средней";
+//   } else {
+//     return "Цена выше средней";
+//   }
+// }
+// console.log(
+//   isAverageLunchPriceTrue(
+//     restorantData.menu[1],
+//     restorantData.menu[3],
+//     restorantData.averageLunchPrice
+//   )
+// );
+
+// function transferWaitors(data) {
+//   const copy = Object.assign({}, data);
+
+//   copy.waitors = [{ name: "Mike", age: 32 }];
+//   console.log(copy);
+// }
+
+// transferWaitors(restorantData);
