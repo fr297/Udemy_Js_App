@@ -1,76 +1,87 @@
 "use strict";
 
-const personalMovieDB = {
-  count: numberOfFilms,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-  start: function () {
-    personalMovieDB.count = +prompt("How many films have you watched?", "");
+document.addEventListener("DOMContentLoaded", () => {
+  const movieDB = {
+    movies: [
+      "Логан",
+      "Лига справедливости",
+      "Ла-ла лэнд",
+      "Одержимость",
+      "Скотт Пилигрим против...",
+    ],
+  };
 
-    while (
-      personalMovieDB.count == "" ||
-      personalMovieDB.count == null ||
-      isNaN(personalMovieDB.count)
-    ) {
-      personalMovieDB.count = +prompt("How many films have you watched?", "");
-    }
-  },
-  rememberMyFilms: function () {
-    for (let i = 0; i < 2; i++) {
-      const a = prompt("What is the last film you watched?", "").trim(),
-        b = +prompt("How would you rate it?", "");
+  const adv = document.querySelectorAll(".promo__adv img"),
+    poster = document.querySelector(".promo__bg"),
+    genre = poster.querySelector(".promo__genre"),
+    movieList = document.querySelector(".promo__interactive-list"),
+    addForm = document.querySelector("form.add"),
+    addInput = addForm.querySelector(".adding__input"),
+    checkbox = addForm.querySelector('[type="checkbox"]');
 
-      if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-        personalMovieDB.movies[a] = b;
-        console.log("Done");
-      } else {
-        console.log("Error");
-        i--;
+  addForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let newFilm = addInput.value;
+    const favorite = checkbox.checked;
+
+    if (newFilm) {
+      if (newFilm.length > 21) {
+        newFilm = `${newFilm.substring(0, 22)}...`;
       }
-    }
-  },
-  detectPersonalLevel: function () {
-    if (personalMovieDB.count < 10) {
-      console.log("Not many films watched");
-    } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
-      console.log("Good");
-    } else if (personalMovieDB.count >= 30) {
-      console.log("You are a cinephile");
-    } else {
-      console.log("Error");
-    }
-  },
-  showMyDB: function () {
-    if (!hidden) {
-      console.log(personalMovieDB);
-    }
-  },
-  writeYourGenres: function () {
-    for (let i = 1; i < 3; i++) {
-      let genre = prompt(`Your favorite film genre number ${i}`, "");
-      personalMovieDB.genres[i - 1] = genre;
 
-      if (genre === "" || genre == null) {
-        console.log("Try more");
-        i--;
-      } else {
-        personalMovieDB.genres[i - 1] = genre;
+      if (favorite) {
+        console.log("Добавляем любимый фильм");
       }
+
+      movieDB.movies.push(newFilm);
+      sortArr(movieDB.movies);
+
+      createMovieList(movieDB.movies, movieList);
     }
 
-    personalMovieDB.genres.forEach((item, i) => {
-      console.log(`Favourite genre ${i + 1} is ${item}`);
+    event.target.reset();
+  });
+
+  const deleteAdv = (arr) => {
+    arr.forEach((item) => {
+      item.remove();
     });
-  },
-  toggleVisibleMyDB: function () {
-    if (personalMovieDB.privat) {
-      personalMovieDB.privat = false;
-    } else {
-      personalMovieDB.privat = true;
-    }
-  },
-};
+  };
 
-console.log(personalMovieDB);
+  const makeChanges = () => {
+    genre.textContent = "драма";
+
+    poster.style.backgroundImage = 'url("img/bg.jpg")';
+  };
+
+  const sortArr = (arr) => {
+    arr.sort();
+  };
+
+  function createMovieList(films, parent) {
+    parent.innerHTML = "";
+    sortArr(films);
+
+    films.forEach((film, i) => {
+      parent.innerHTML += `
+                <li class="promo__interactive-item">${i + 1} ${film}
+                    <div class="delete"></div>
+                </li>
+            `;
+    });
+
+    document.querySelectorAll(".delete").forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.remove();
+        movieDB.movies.splice(i, 1);
+
+        createMovieList(films, parent);
+      });
+    });
+  }
+
+  deleteAdv(adv);
+  makeChanges();
+  createMovieList(movieDB.movies, movieList);
+});
